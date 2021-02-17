@@ -8,6 +8,7 @@ export class CdkCrudAppStack extends cdk.Stack {
     super(scope, id, props);
 
     // The code that defines your stack goes here
+
     // Here we will create construct for appsync to define the schema
     const api = new appsync.GraphqlApi(this , "CrudAPI" , {
       name : "cdk-TodoCRUD-Api",
@@ -40,6 +41,24 @@ export class CdkCrudAppStack extends cdk.Stack {
       fieldName : "addTodo"
     });
 
+    dataSource.createResolver({
+      typeName : "Query",
+      fieldName : "getTodos"
+    });
+
+    dataSource.createResolver({
+      typeName : "Mutation",
+      fieldName : "deleteTodo"
+    });
+
+    dataSource.createResolver({
+      typeName : "Mutation",
+      fieldName : "updateTodo"
+    });
+
+
+
+
 
     // here we will create the table in our dynamodb
 
@@ -59,8 +78,5 @@ export class CdkCrudAppStack extends cdk.Stack {
     lambdaFn.addEnvironment("Todos_Table" , dynamotable.tableName );
 
   
-
-
-
   }
 }

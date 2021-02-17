@@ -3,17 +3,17 @@ type Todo {
     title : String!
 }
 
-type TodoInput {
+input TodoInput {
     id : ID!
     title : String!
 }
 
 type Query {
-    todos : [Todo!]
+    getTodos : [Todo!]
 }
 
 type Mutation {
     addTodo(todo : TodoInput! ):Todo!
-    deleteTodo(id : String!):String!
+    deleteTodo(todoId : String!):String!
     updateTodo(todo : TodoInput! ): Todo!
 }
