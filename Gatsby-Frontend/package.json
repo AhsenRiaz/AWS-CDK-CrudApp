@@ -16,8 +16,15 @@
   },
   "license": "0BSD",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "aws-amplify": "^3.3.19",
+    "formik": "^2.2.6",
     "gatsby": "^2.32.3",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "short-id": "0.1.0-1",
+    "spinners-react": "^1.0.4",
+    "yup": "^0.32.9"
   }
 }

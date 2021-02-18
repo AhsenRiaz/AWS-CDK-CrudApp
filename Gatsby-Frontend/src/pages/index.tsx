@@ -1,14 +1,12 @@
-import  React from "react"
+import React from 'react'
+import Todo from '../components/Todo'
 
-
-
-// markup
-const IndexPage = () => {
+const index = () => {
   return (
-   <div>
-     Hello World
-   </div>
+    <div>
+      <Todo/>
+    </div>
   )
 }
 
-export default IndexPage
+export default index

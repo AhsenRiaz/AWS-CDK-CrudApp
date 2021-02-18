@@ -15,6 +15,14 @@ const deleteTodo = async (todoId:string) => {
             id : todoId
         }
     }
+
+    try {
+        await docClient.delete(params).promise()
+        return todoId
+    }
+    catch(err){
+        return null
+    }
 }
 
 export default deleteTodo

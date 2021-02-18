@@ -1,0 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const aws_sdk_1 = require("aws-sdk");
+const docClient = new aws_sdk_1.DynamoDB.DocumentClient();
+const addTodo = async (todo) => {
+    const params = {
+        TableName: process.env.Todos_Table || "",
+        Item: todo
+    };
+    try {
+        const data = await docClient.put(params).promise();
+        return todo;
+    }
+    catch (err) {
+        return null;
+    }
+};
+exports.default = addTodo;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWRkVG9kby5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImFkZFRvZG8udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxxQ0FBbUM7QUFFbkMsTUFBTSxTQUFTLEdBQUcsSUFBSSxrQkFBUSxDQUFDLGNBQWMsRUFBRSxDQUFBO0FBUy9DLE1BQU0sT0FBTyxHQUFHLEtBQUssRUFBRSxJQUFTLEVBQUUsRUFBRTtJQUVoQyxNQUFNLE1BQU0sR0FBVTtRQUNsQixTQUFTLEVBQUcsT0FBTyxDQUFDLEdBQUcsQ0FBQyxXQUFXLElBQUksRUFBRTtRQUN6QyxJQUFJLEVBQUcsSUFBSTtLQUNkLENBQUE7SUFFRCxJQUFJO1FBQ0EsTUFBTSxJQUFJLEdBQUcsTUFBTSxTQUFTLENBQUMsR0FBRyxDQUFDLE1BQU0sQ0FBQyxDQUFDLE9BQU8sRUFBRSxDQUFBO1FBQ2xELE9BQU8sSUFBSSxDQUFBO0tBQ2Q7SUFDRCxPQUFNLEdBQUcsRUFBQztRQUNOLE9BQU8sSUFBSSxDQUFBO0tBQ2Q7QUFDTCxDQUFDLENBQUE7QUFFRCxrQkFBZSxPQUFPLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCB7IER5bmFtb0RCIH0gZnJvbSBcImF3cy1zZGtcIjtcbmltcG9ydCBUb2RvIGZyb20gXCIuL1RvZG9cIjtcbmNvbnN0IGRvY0NsaWVudCA9IG5ldyBEeW5hbW9EQi5Eb2N1bWVudENsaWVudCgpXG5cbnR5cGUgUGFyYW1zID0gIHtcbiAgICBUYWJsZU5hbWUgOiBzdHJpbmcgfCBcIlwiXG4gICAgSXRlbSA6IFRvZG9cbn1cblxuXG5cbmNvbnN0IGFkZFRvZG8gPSBhc3luYyAodG9kbzpUb2RvKSA9PiB7XG4gICAgXG4gICAgY29uc3QgcGFyYW1zOlBhcmFtcyA9IHtcbiAgICAgICAgVGFibGVOYW1lIDogcHJvY2Vzcy5lbnYuVG9kb3NfVGFibGUgfHwgXCJcIixcbiAgICAgICAgSXRlbSA6IHRvZG9cbiAgICB9XG5cbiAgICB0cnkge1xuICAgICAgICBjb25zdCBkYXRhID0gYXdhaXQgZG9jQ2xpZW50LnB1dChwYXJhbXMpLnByb21pc2UoKVxuICAgICAgICByZXR1cm4gdG9kb1xuICAgIH1cbiAgICBjYXRjaChlcnIpe1xuICAgICAgICByZXR1cm4gbnVsbFxuICAgIH1cbn1cblxuZXhwb3J0IGRlZmF1bHQgYWRkVG9kb1xuIl19
